@@ -19,7 +19,7 @@ def save_to_csv(results, filepath="results.csv"):
     
     for source, chunks in results.items():
         for chunk in chunks:
-            # Flatten lists to comma-separated strings for CSV brevity
+           
             entities = chunk.get('entities', {})
             people = ", ".join(entities.get('people', []))
             places = ", ".join(entities.get('places', []))
@@ -51,13 +51,13 @@ def generate_summary_report(results, filepath="summary_report.txt"):
     total_sources = len(results)
     total_chunks = sum(len(chunks) for chunks in results.values())
     
-    # Calculate some aggregates
+    
     sentiment_counts = {"positive": 0, "neutral": 0, "negative": 0}
     avg_confidence_sum = 0
     
     for chunks in results.values():
         for chunk in chunks:
-            # Normalize sentiment strings
+           
             sentiment = str(chunk.get('sentiment', 'neutral')).lower()
             if sentiment in sentiment_counts:
                 sentiment_counts[sentiment] += 1

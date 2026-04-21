@@ -6,7 +6,7 @@ from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_excep
 
 logger = logging.getLogger(__name__)
 
-# System instructions to enforce JSON output structure
+
 SYSTEM_PROMPT = """
 You are an expert entity extraction and text analysis AI. 
 You must analyze the provided text and output ONLY a valid JSON object with the following exact structure, no markdown parsing or backticks around it:
@@ -63,7 +63,7 @@ def process_chunk_with_llm(text_chunk):
     if not setup_llm():
         return None
         
-    # We use gemini-flash-latest as it is fast, cost-effective and perfectly capable of entity extraction.
+   
     model = genai.GenerativeModel(
         model_name='gemini-flash-latest',
         system_instruction=SYSTEM_PROMPT
@@ -75,7 +75,7 @@ def process_chunk_with_llm(text_chunk):
         logger.error(f"LLM API call failed after retries: {e}")
         return None
 
-    # Parse and validate the JSON
+    
     parsed_json = _parse_json_robustly(raw_output)
     if not parsed_json:
         logger.warning("Failed to parse LLM output as JSON.")
@@ -88,7 +88,7 @@ def _parse_json_robustly(text_output):
     Attempts to parse JSON from the string, handling potential
     markdown code blocks that LLMs sometimes insert despite instructions.
     """
-    # Simply strip markdown boundaries if present
+   
     text = text_output.strip()
     if text.startswith("```json"):
         text = text[7:]

@@ -41,18 +41,18 @@ def read_pdf_file(filepath):
 def fetch_url(url, timeout=10):
     """Fetch text from a URL and remove boilerplate."""
     try:
-        # Use a generic User-Agent to avoid simple blocks
+       
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
         response = requests.get(url, headers=headers, timeout=timeout)
         response.raise_for_status()
         
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Remove script and style elements
+        
         for script in soup(["script", "style", "nav", "footer", "header", "noscript"]):
             script.decompose()
         
-        # Get text and clean it up slightly
+       
         text = soup.get_text(separator=' ')
         return text
     except requests.exceptions.RequestException as e:

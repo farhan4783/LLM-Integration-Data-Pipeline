@@ -24,7 +24,7 @@ def parse_args():
 def main():
     load_dotenv()
     
-    # Check if API key is configured
+   
     if not os.getenv("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY") == "your_gemini_api_key_here":
         logger.error("Please set GEMINI_API_KEY in the .env file.")
         return
@@ -41,15 +41,15 @@ def main():
         logger.error("No data could be ingested from the provided inputs. Exiting.")
         return
         
-    # 2. Preprocessing & Chunking
+   
     logger.info("--- Step 2: Preprocessing ---")
     processed_data = preprocess_documents(raw_data)
     
-    # 3. LLM Processing
+   
     logger.info("--- Step 3: LLM Analysis ---")
     results = process_documents_with_llm(processed_data)
     
-    # 4. Storage & Reporting
+    
     logger.info("--- Step 4: Storing Results ---")
     save_to_json(results, os.path.join(os.getcwd(), 'results.json'))
     save_to_csv(results, os.path.join(os.getcwd(), 'results.csv'))

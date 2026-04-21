@@ -8,9 +8,9 @@ def clean_text(text):
     """
     Remove excessive whitespace and normalize the text.
     """
-    # Replace multiple spaces with a single space
+   
     text = re.sub(r'[ \t]+', ' ', text)
-    # Replace multiple blank lines with a single blank line
+   
     text = re.sub(r'\n\s*\n', '\n\n', text)
     return text.strip()
 
@@ -54,7 +54,7 @@ def fallback_chunk_text(text, max_chars=8000, overlap_chars=800):
     
     while start < total_chars:
         end = min(start + max_chars, total_chars)
-        # Try to find a nice breaking point (e.g. paragraph or sentence end)
+        
         if end < total_chars:
             break_idx = text.rfind('\n', start, end)
             if break_idx == -1 or break_idx <= start:
