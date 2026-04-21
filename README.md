@@ -65,7 +65,7 @@ The pipeline will log its progress. Upon completion, the following files are pro
 
 ## Demonstration (Video)
 
-<video src="Recording.mp4" controls width="100%" style="max-width: 800px;"></video>
+<video src="Recording.mp4"></video>
 
 
 
