@@ -64,4 +64,9 @@ The pipeline will log its progress. Upon completion, the following files are pro
 - **Error Types Supported**: Network timeouts (on scrape or LLM call), JSON decode errors, Token limit triggers, URL resolution failures.
 
 ## Demonstration (Video)
-[Please refer to the enclosed video demo for a full walk-through of the code executing against a text document and Wikipedia article, proving out error handling!]
+
+<video src="Recording.mp4" controls width="100%" style="max-width: 800px;"></video>
+
+
+
+

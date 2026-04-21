@@ -1,0 +1,19 @@
+========================================
+      LLM PIPELINE SUMMARY REPORT       
+========================================
+
+Total Inputs Processed: 1
+Total Chunks Analyzed: 17
+
+Sentiment Distribution:
+  - Positive: 0
+  - Neutral:  14
+  - Negative: 3
+
+Average Confidence Score: 0.97
+
+Details by Source:
+  - https://en.wikipedia.org/wiki/Large_language_model: 17 chunks processed successfully.
+
+========================================
+End of Report
